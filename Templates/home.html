@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
-        <title>{{title}}</title>
-    {% else %}
-        <title>Document</title>
-    {% endif %}
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
     {% for post in posts %}
-        <h1>{{ post.title }}</h1>
-        <p>By {{ post.author }} on {{ post.date_posted }}</p>
-        <p>{{ post.content }}</p>
+        <h1 style="font-size: 2.5rem; color: #ff6347; margin-bottom: 10px;">{{ post.title }}</h1>
+        <p style="font-style: italic; color: #555; margin-bottom: 5px;">By {{ post.author }}</p>
+        <p style="font-size: 0.9rem; color: #888; margin-bottom: 20px;">on {{ post.date_posted }}</p>
+        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">{{ post.content }}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
